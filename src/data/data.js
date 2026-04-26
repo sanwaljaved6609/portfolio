@@ -46,25 +46,37 @@ export const skills = [
 
 export const experiences = [
     {
-        company: "Software Solutions Inc.",
-        role: "Full Stack Developer",
-        period: "2023 - Present",
-        description: "Developing scalable web applications using React and Laravel. Optimizing database performance and implementing real-time features."
+        company: "Nisat Mills Ltd.",
+        role: "Junior SQL Developer (Internship)",
+        period: "4-Jun-2023 - 5-Jul-2023",
+        description: "Developed and maintained SQL Server databases, wrote complex queries and stored procedures, and optimized database performance."
     },
     {
-        company: "Tech Innovators",
-        role: "Junior Web Developer",
-        period: "2022 - 2023",
-        description: "Built responsive user interfaces and integrated third-party APIs for various client projects."
+        company: "Programmer's Force",
+        role: "Laravel Developer (Internship)",
+        period: "8-Jan-2026 - 8-Jun-2026",
+        description: "Worked as Laravel Developer and worked on the Barie.ai product an AI agent. Implemented the CRUD operations for the Barie.ai product, integrated the bot agents in different social apps."
     }
 ];
 
 export const education = [
     {
-        institution: "Your University Name",
+        institution: "University of Management and Technology Lahore",
         degree: "Bachelor of Science in Computer Science",
-        period: "2018 - 2022",
+        period: "2021 - 2025",
         description: "Graduated with honors. Specialized in Software Engineering and Database Management."
+    },
+    {
+        institution: "Punjab Group of Colleges Sheikhupura",
+        degree: "FSc pre-medical",
+        period: "2019 - 2021",
+        description: "Graduated with A+ grade."
+    },
+    {
+        institution: "Government Furqan Shaheed High school Sheikhupura",
+        degree: "Matriculation",
+        period: "2017 - 2019",
+        description: "Graduated with A+ grade."
     }
 ];
 
