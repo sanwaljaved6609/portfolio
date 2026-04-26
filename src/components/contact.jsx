@@ -22,7 +22,14 @@ function Contact() {
                             <div className="flex gap-4 pt-4">
                                 <a href={bio.github} target="_blank" rel="noreferrer" className="p-4 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-400/50 text-slate-400 hover:text-blue-400 transition-all">
                                 </a>
-                                <a href={bio.linkedin} target="_blank" rel="noreferrer" className="p-4 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-400/50 text-slate-400 hover:text-blue-400 transition-all">
+                                <a href={bio.linkedin} target="_blank" rel="noreferrer" className="p-4 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-400/50 text-slate-400 hover:text-blue-400 transition-all hover:scale-110" title="LinkedIn">
+
+                                </a>
+                                <a href={bio.facebook} target="_blank" rel="noreferrer" className="p-4 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-400/50 text-slate-400 hover:text-blue-400 transition-all hover:scale-110" title="Facebook">
+
+                                </a>
+                                <a href={bio.insta} target="_blank" rel="noreferrer" className="p-4 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-400/50 text-slate-400 hover:text-blue-400 transition-all hover:scale-110" title="Instagram">
+
                                 </a>
                             </div>
                         </div>

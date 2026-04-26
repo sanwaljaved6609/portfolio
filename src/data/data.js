@@ -8,6 +8,8 @@ export const bio = {
     email: "sanwaljaved720@gmail.com",
     github: "https://github.com/sanwaljaved",
     linkedin: "https://linkedin.com/in/sanwaljaved",
+    facebook: "https://facebook.com/sanwal.javed",
+    insta: "https://instagram.com/sanwal_javed",
     profileImage: profile
 };
 
