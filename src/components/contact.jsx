@@ -4,6 +4,20 @@ import { bio } from '../data/data';
 import { Mail, Github, Linkedin, Facebook, Instagram, Send } from 'lucide-react';
 
 function Contact() {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const message = e.target.message.value;
+
+        const subject = `New message from ${name}`;
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+
+        window.location.href = `mailto:${bio.email}?subject=${subject}&body=${body}`;
+    };
+
     return (
         <section id="contact" className="py-24 px-6 max-w-6xl mx-auto transition-colors duration-300">
             <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-[3rem] p-1 md:p-2 shadow-2xl shadow-blue-500/20">
@@ -39,18 +53,18 @@ function Contact() {
                     </div>
 
                     <div className="flex-1 bg-slate-50 dark:bg-slate-900/50 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 transition-colors duration-300">
-                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div>
                                 <label className="block text-sm font-medium text-slate-500 mb-2">Name</label>
-                                <input type="text" className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors shadow-sm" placeholder="John Doe" />
+                                <input type="text" name="name" className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors shadow-sm" placeholder="John Doe" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-slate-500 mb-2">Email</label>
-                                <input type="email" className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors shadow-sm" placeholder="john@example.com" />
+                                <input type="email" name="email" className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors shadow-sm" placeholder="john@example.com" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-slate-500 mb-2">Message</label>
-                                <textarea rows="4" className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors shadow-sm" placeholder="Tell me about your project..."></textarea>
+                                <textarea rows="4" name="message" className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors shadow-sm" placeholder="Tell me about your project..."></textarea>
                             </div>
                             <motion.button
                                 whileHover={{ scale: 1.02 }}

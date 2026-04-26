@@ -1,4 +1,5 @@
-import profile from "./profile.png";
+import profile from "../assets/profile.png";
+import whatsappQR from "../assets/whatsapp_qr.png";
 
 export const bio = {
     name: "Muhammad Sanwal Javed",
@@ -10,7 +11,9 @@ export const bio = {
     linkedin: "https://www.linkedin.com/in/muhammad-sanwal-javed-831082257?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     facebook: "https://www.facebook.com/share/1H1GT6p8yQ/",
     insta: "https://www.instagram.com/im_sanwal1?igsh=MW4yYWY3cjJ4dGp2YQ==",
-    profileImage: profile
+    whatsapp: "https://wa.me/+923400743553",
+    profileImage: profile,
+    whatsappQR: whatsappQR
 };
 
 export const skills = [
@@ -55,16 +58,16 @@ export const skills = [
 
 export const experiences = [
     {
-        company: "Nisat Mills Ltd.",
-        role: "Junior SQL Developer (Internship)",
-        period: "4-Jun-2023 - 5-Jul-2023",
-        description: "Developed and maintained SQL Server databases, wrote complex queries and stored procedures, and optimized database performance."
-    },
-    {
         company: "Programmer's Force",
         role: "Laravel Developer (Internship)",
         period: "8-Jan-2026 - 8-Jun-2026",
         description: "Worked as Laravel Developer and worked on the Barie.ai product an AI agent. Implemented the CRUD operations for the Barie.ai product, integrated the bot agents in different social apps."
+    },
+    {
+        company: "Nisat Mills Ltd.",
+        role: "Junior SQL Developer (Internship)",
+        period: "4-Jun-2023 - 5-Jul-2023",
+        description: "Developed and maintained SQL Server databases, wrote complex queries and stored procedures, and optimized database performance."
     }
 ];
 

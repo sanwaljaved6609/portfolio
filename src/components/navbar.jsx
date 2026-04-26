@@ -26,11 +26,12 @@ function Navbar({ isDarkMode, toggleTheme }) {
                 </motion.h1>
                 <div className="hidden md:flex gap-10 text-sm font-semibold text-slate-600 dark:text-slate-300 items-center">
                     <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Skills</a>
-                    <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Projects</a>
+                    <a href="#process" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Process</a>
                     <a href="#experience" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Experience</a>
+                    <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Projects</a>
                     <a href="#education" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Education</a>
-                    
-                    <button 
+
+                    <button
                         onClick={toggleTheme}
                         className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:ring-2 hover:ring-blue-500 transition-all"
                     >
@@ -43,7 +44,7 @@ function Navbar({ isDarkMode, toggleTheme }) {
                         href="#contact"
                         className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/20 transition-all shadow-md"
                     >
-                        Hire Me
+                        Contact Me
                     </motion.a>
                 </div>
             </div>

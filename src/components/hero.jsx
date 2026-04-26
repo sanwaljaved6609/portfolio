@@ -13,9 +13,9 @@ function Hero() {
                     className="mb-8 relative inline-block"
                 >
                     <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-blue-500/30 overflow-hidden mx-auto shadow-2xl shadow-blue-500/10">
-                        <img 
-                            src={bio.profileImage} 
-                            alt={bio.name} 
+                        <img
+                            src={bio.profileImage}
+                            alt={bio.name}
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -42,18 +42,18 @@ function Hero() {
                         {bio.description}
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <motion.a 
+                        <motion.a
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            href="#contact" 
+                            href="#contact"
                             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition shadow-lg shadow-blue-500/20"
                         >
-                            Hire Me Now
+                            Contact Me
                         </motion.a>
-                        <motion.a 
+                        <motion.a
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            href="#projects" 
+                            href="#projects"
                             className="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-8 py-4 rounded-full font-bold transition"
                         >
                             View Projects
