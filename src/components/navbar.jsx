@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sun, Moon, Menu, X, Download } from 'lucide-react';
+import { bio } from '../data/data';
 
 function Navbar({ isDarkMode, toggleTheme }) {
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,6 +14,15 @@ function Navbar({ isDarkMode, toggleTheme }) {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const navLinks = [
+        { name: 'Skills', href: '#skills' },
+        { name: 'Process', href: '#process' },
+        { name: 'Experience', href: '#experience' },
+        { name: 'Projects', href: '#projects' },
+        { name: 'Education', href: '#education' },
+        { name: 'Contact', href: '#contact' },
+    ];
 
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-slate-950/90 backdrop-blur-md py-4 border-b border-slate-200 dark:border-slate-800' : 'bg-transparent py-6'}`}>
@@ -24,30 +35,85 @@ function Navbar({ isDarkMode, toggleTheme }) {
                 >
                     sanwaljaved
                 </motion.h1>
-                <div className="hidden md:flex gap-10 text-sm font-semibold text-slate-600 dark:text-slate-300 items-center">
-                    <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Skills</a>
-                    <a href="#process" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Process</a>
-                    <a href="#experience" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Experience</a>
-                    <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Projects</a>
-                    <a href="#education" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">Education</a>
 
+                {/* Desktop Nav */}
+                <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300 items-center">
+                    {navLinks.map((link) => (
+                        <a key={link.name} href={link.href} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">
+                            {link.name}
+                        </a>
+                    ))}
+
+                    <div className="flex items-center gap-4 border-l border-slate-200 dark:border-slate-800 pl-8">
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:ring-2 hover:ring-blue-500 transition-all"
+                        >
+                            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
+
+                        <motion.a
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            href={bio.cv}
+                            download
+                            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-md text-sm"
+                        >
+                            <Download size={18} />
+                            Download CV
+                        </motion.a>
+                    </div>
+                </div>
+
+                {/* Mobile Menu Button */}
+                <div className="md:hidden flex items-center gap-4">
                     <button
                         onClick={toggleTheme}
-                        className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:ring-2 hover:ring-blue-500 transition-all"
+                        className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
                     >
                         {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
-
-                    <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        href="#contact"
-                        className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/20 transition-all shadow-md"
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="text-slate-800 dark:text-white p-1"
                     >
-                        Contact Me
-                    </motion.a>
+                        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Nav Overlay */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 overflow-hidden"
+                    >
+                        <div className="flex flex-col p-6 gap-4">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                            <a
+                                href={bio.cv}
+                                download
+                                className="mt-4 flex items-center justify-center gap-2 w-full py-4 bg-blue-600 text-white rounded-2xl font-bold"
+                            >
+                                <Download size={20} />
+                                Download CV
+                            </a>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

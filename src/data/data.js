@@ -1,8 +1,9 @@
 import profile from "../assets/profile.png";
 import whatsappQR from "../assets/whatsapp_qr.png";
+import cvFile from "../assets/CV.pdf";
 
 export const bio = {
-    name: "Muhammad Sanwal Javedff",
+    name: "Muhammad Sanwal Javed",
     title: "Full-Stack Software Engineer",
     description: "I am a Software Engineer with a strong focus on full-stack web development, specializing in the MERN stack and Laravel backend. I have hands-on experience working with technologies such as React.js, Node.js, Laravel, and MongoDB, building scalable, efficient, and user-friendly applications.",
     about: "I am passionate about writing clean code, solving real-world problems, and continuously learning new tools and technologies to enhance my development skills.",
@@ -13,8 +14,11 @@ export const bio = {
     insta: "https://www.instagram.com/im_sanwal1?igsh=MW4yYWY3cjJ4dGp2YQ==",
     whatsapp: "https://wa.me/+923400743553",
     profileImage: profile,
-    whatsappQR: whatsappQR
+    whatsappQR: whatsappQR,
+    cv: cvFile
 };
+
+
 
 export const skills = [
     {
