@@ -16,13 +16,30 @@ function Navbar({ isDarkMode, toggleTheme }) {
     }, []);
 
     const navLinks = [
-        { name: 'Skills', href: '#skills' },
-        { name: 'Process', href: '#process' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Education', href: '#education' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Skills', href: 'skills' },
+        { name: 'Process', href: 'process' },
+        { name: 'Experience', href: 'experience' },
+        { name: 'Projects', href: 'projects' },
+        { name: 'Education', href: 'education' },
+        { name: 'Contact', href: 'contact' },
     ];
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offset = 80; // height of the navbar
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+        setIsMenuOpen(false);
+    };
 
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-slate-950/90 backdrop-blur-md py-4 border-b border-slate-200 dark:border-slate-800' : 'bg-transparent py-6'}`}>
@@ -39,9 +56,13 @@ function Navbar({ isDarkMode, toggleTheme }) {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300 items-center">
                     {navLinks.map((link) => (
-                        <a key={link.name} href={link.href} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider">
+                        <button
+                            key={link.name}
+                            onClick={() => scrollToSection(link.href)}
+                            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider"
+                        >
                             {link.name}
-                        </a>
+                        </button>
                     ))}
 
                     <div className="flex items-center gap-4 border-l border-slate-200 dark:border-slate-800 pl-8">
@@ -93,14 +114,13 @@ function Navbar({ isDarkMode, toggleTheme }) {
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (
-                                <a
+                                <button
                                     key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                    onClick={() => scrollToSection(link.href)}
+                                    className="text-left text-lg font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                                 >
                                     {link.name}
-                                </a>
+                                </button>
                             ))}
                             <a
                                 href={bio.cv}
