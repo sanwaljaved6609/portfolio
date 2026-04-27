@@ -2,7 +2,7 @@ import profile from "../assets/profile.png";
 import whatsappQR from "../assets/whatsapp_qr.png";
 
 export const bio = {
-    name: "Muhammad Sanwal Javed",
+    name: "Muhammad Sanwal Javedff",
     title: "Full-Stack Software Engineer",
     description: "I am a Software Engineer with a strong focus on full-stack web development, specializing in the MERN stack and Laravel backend. I have hands-on experience working with technologies such as React.js, Node.js, Laravel, and MongoDB, building scalable, efficient, and user-friendly applications.",
     about: "I am passionate about writing clean code, solving real-world problems, and continuously learning new tools and technologies to enhance my development skills.",
